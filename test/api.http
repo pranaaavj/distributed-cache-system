@@ -1,0 +1,44 @@
+GET http://localhost:3000/product
+Content-Type: application/json
+
+{
+  "id": "prod4"
+}
+
+### 
+POST http://localhost:3000/product
+Content-Type: application/json
+
+{
+  "product": {
+    "name": "Morning",
+    "price": 700,
+    "description": "Best bottle out there",
+    "stock": 2,
+    "category": "Bottle"
+  }
+}
+
+###
+PUT http://localhost:3000/product
+Content-Type: application/json
+
+{
+  "product": {
+    "id": "prod4",
+    "name": "Morning",
+    "price": 20,
+    "description": "Best bottle out there",
+    "stock": 2,
+    "category": "Bottle"
+  }
+
+}
+
+###
+DELETE http://localhost:3000/product
+Content-Type: application/json
+
+{
+  "id": "prod4"
+}

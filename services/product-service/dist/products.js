@@ -1,0 +1,30 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.products = void 0;
+exports.products = [
+    {
+        id: 'prod1',
+        name: 'Laptop Pro',
+        description: 'High-performance laptop',
+        price: 1500,
+        stock: 10,
+        category: 'Electronics',
+    },
+    {
+        id: 'prod2',
+        name: 'Wireless Mouse',
+        description: 'Ergonomic mouse',
+        price: 50,
+        stock: 50,
+        category: 'Electronics',
+    },
+    {
+        id: 'prod3',
+        name: 'Mechanical Keyboard',
+        description: 'RGB backlit keyboard',
+        price: 120,
+        stock: 20,
+        category: 'Electronics',
+    },
+];
+//# sourceMappingURL=products.js.map
