@@ -2,7 +2,7 @@ GET http://localhost:3000/product
 Content-Type: application/json
 
 {
-  "id": "prod4"
+  "id": "prod1"
 }
 
 ### 
@@ -25,12 +25,12 @@ Content-Type: application/json
 
 {
   "product": {
-    "id": "prod4",
-    "name": "Morning",
-    "price": 20,
-    "description": "Best bottle out there",
-    "stock": 2,
-    "category": "Bottle"
+    "id": "prod1",
+    "name": "Laptop",
+    "price": 150,
+    "description": "High-performance laptop",
+    "stock": 10,
+    "category": "Electronics"
   }
 
 }
