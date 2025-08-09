@@ -1,8 +1,5 @@
-import { Product, GetProductRequest, ProductServiceServer, UpdateProductRequest, CreateProductRequest, DeleteProductRequest, DeleteResponse } from './generated/product';
+import { Product, GetProductRequest, ProductServiceServer, UpdateProductRequest, CreateProductRequest, DeleteProductRequest, DeleteResponse } from '@system/proto-contracts/src';
 import { sendUnaryData, ServerUnaryCall, UntypedHandleCall } from '@grpc/grpc-js';
-export interface ProductData extends Product {
-    id: string;
-}
 export declare class ProductService implements ProductServiceServer {
     [method: string]: UntypedHandleCall;
     getProduct(call: ServerUnaryCall<GetProductRequest, Product>, callback: sendUnaryData<Product>): Promise<void>;

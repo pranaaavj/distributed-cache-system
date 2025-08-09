@@ -1,5 +1,5 @@
 import express from 'express';
-import { GrpcProductClient } from './grpcProduct';
+import { GrpcProductClient } from './grpcProduct.js';
 import { Request, Response } from 'express';
 
 const host = process.env.HOST ?? 'localhost';
@@ -12,7 +12,7 @@ app.use(express.json());
 app.get('/product', (req: Request, res: Response) => {
   const id = req.body.id;
 
-  GrpcProductClient.getProduct({ id }, (err, data) => {
+  GrpcProductClient.getProduct(id, (err, data) => {
     if (err) {
       res.status(404).json({ error: err.message });
       return;
@@ -51,7 +51,7 @@ app.put('/product', (req: Request, res: Response) => {
 app.delete('/product', (req: Request, res: Response) => {
   const id = req.body.id;
 
-  GrpcProductClient.deleteProduct({ id }, (err, data) => {
+  GrpcProductClient.deleteProduct(id, (err, data) => {
     if (err) {
       res.status(404).json({ error: err.message });
       return;

@@ -8,7 +8,7 @@ import {
   InvalidateRequest,
   InvalidateResponse,
   Product,
-} from './generated/cache_service';
+} from '@system/proto-contracts';
 import {
   connectedRedisClient,
   getRedisClient,
@@ -92,10 +92,7 @@ const server = new grpc.Server();
 connectRedisClient().then(() => {
   const redisClient = getRedisClient();
 
-  server.addService(
-    CacheServiceService,
-    new CacheService(redisClient) as unknown as CacheServiceServer
-  );
+  server.addService(CacheServiceService, new CacheService(redisClient) as any); // Todo: Have used any for development, change this accordingly.
   server.bindAsync(
     `0.0.0.0:${CACHE_SERVICE_PORT}`,
     grpc.ServerCredentials.createInsecure(),

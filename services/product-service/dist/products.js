@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.products = void 0;
-exports.products = [
+export const products = [
     {
         id: 'prod1',
         name: 'Laptop Pro',
@@ -27,4 +24,3 @@ exports.products = [
         category: 'Electronics',
     },
 ];
-//# sourceMappingURL=products.js.map

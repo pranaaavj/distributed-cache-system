@@ -1,3 +1,2 @@
-import { ProductServiceClient } from './generated/product';
-export declare const GrpcProductClient: ProductServiceClient;
+export declare const GrpcProductClient: any;
 //# sourceMappingURL=grpcProduct.d.ts.map

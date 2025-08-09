@@ -7,7 +7,7 @@ import {
   CreateProductRequest,
   DeleteProductRequest,
   DeleteResponse,
-} from './generated/product';
+} from '@system/proto-contracts/src';
 import {
   sendUnaryData,
   ServerUnaryCall,
@@ -16,10 +16,6 @@ import {
 import { products } from './products';
 import * as grpc from '@grpc/grpc-js';
 import { GrpcCacheClient } from './grpcCache';
-
-export interface ProductData extends Product {
-  id: string;
-}
 
 export class ProductService implements ProductServiceServer {
   [method: string]: UntypedHandleCall;

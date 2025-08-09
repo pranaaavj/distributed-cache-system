@@ -1,5 +1,5 @@
 import * as grpc from '@grpc/grpc-js';
-import { CacheServiceClient, GetResponse } from './generated/cache_service';
+import { CacheServiceClient, GetResponse } from '@system/proto-contracts';
 import {
   GetRequest,
   SetRequest,
@@ -7,7 +7,7 @@ import {
   SetResponse,
   InvalidateRequest,
   InvalidateResponse,
-} from './generated/cache_service';
+} from '@system/proto-contracts';
 
 const CACHE_SERVICE_PORT = 'localhost:50052';
 
@@ -71,9 +71,3 @@ export const GrpcCacheClient = {
 
 const deadline = new Date();
 deadline.setSeconds(deadline.getSeconds() + 5);
-
-client.waitForReady(deadline, (err) => {
-  if (err) return console.log('Error starting the product service');
-
-  console.log('Server has started');
-});

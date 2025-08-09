@@ -1,4 +1,8 @@
-import { ProductData } from './main';
+import { Product } from '@system/proto-contracts';
+
+interface ProductData extends Product {
+  id: string;
+}
 
 export const products: ProductData[] = [
   {

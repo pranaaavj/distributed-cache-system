@@ -1,3 +1,2 @@
-import { CacheServiceClient } from './generated/cache_service';
-export declare const GrpcCacheClient: CacheServiceClient;
+export declare const GrpcCacheClient: any;
 //# sourceMappingURL=grpcCache.d.ts.map

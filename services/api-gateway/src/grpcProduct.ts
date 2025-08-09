@@ -1,5 +1,5 @@
 import * as grpc from '@grpc/grpc-js';
-import { ProductServiceClient } from './generated/product';
+import { ProductServiceClient } from '@system/proto-contracts';
 
 const PRODUCT_SERVICE_PORT = 'localhost:50051';
 
@@ -12,9 +12,3 @@ export const GrpcProductClient = client;
 
 const deadline = new Date();
 deadline.setSeconds(deadline.getSeconds() + 5);
-
-client.waitForReady(deadline, (err) => {
-  if (err) return console.log('Error starting the product service');
-
-  console.log('Server has started');
-});

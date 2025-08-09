@@ -1,17 +1,12 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const grpcProduct_1 = require("./grpcProduct");
+import express from 'express';
+import { GrpcProductClient } from './grpcProduct.js';
 const host = process.env.HOST ?? 'localhost';
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
-const app = (0, express_1.default)();
-app.use(express_1.default.json());
+const app = express();
+app.use(express.json());
 app.get('/product', (req, res) => {
     const id = req.body.id;
-    grpcProduct_1.GrpcProductClient.getProduct({ id }, (err, data) => {
+    GrpcProductClient.getProduct(id, (err, data) => {
         if (err) {
             res.status(404).json({ error: err.message });
             return;
@@ -21,7 +16,7 @@ app.get('/product', (req, res) => {
 });
 app.post('/product', (req, res) => {
     const product = req.body.product;
-    grpcProduct_1.GrpcProductClient.createProduct({ ...product }, (err, data) => {
+    GrpcProductClient.createProduct({ ...product }, (err, data) => {
         if (err) {
             res.status(404).json({ error: err.message });
             return;
@@ -31,7 +26,7 @@ app.post('/product', (req, res) => {
 });
 app.put('/product', (req, res) => {
     const product = req.body.product;
-    grpcProduct_1.GrpcProductClient.updateProduct({ ...product }, (err, data) => {
+    GrpcProductClient.updateProduct({ ...product }, (err, data) => {
         if (err) {
             res.status(404).json({ error: err.message });
             return;
@@ -41,7 +36,7 @@ app.put('/product', (req, res) => {
 });
 app.delete('/product', (req, res) => {
     const id = req.body.id;
-    grpcProduct_1.GrpcProductClient.deleteProduct({ id }, (err, data) => {
+    GrpcProductClient.deleteProduct(id, (err, data) => {
         if (err) {
             res.status(404).json({ error: err.message });
             return;
@@ -52,4 +47,3 @@ app.delete('/product', (req, res) => {
 app.listen(port, host, () => {
     console.log(`[ ready ] http://${host}:${port}`);
 });
-//# sourceMappingURL=main.js.map

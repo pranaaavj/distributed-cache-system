@@ -1,0 +1,21 @@
+{
+  "name": "distributed-cache-system",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "build:shared": "npm run build --workspace=packages/proto-contracts",
+    "build:services": "npm run build --workspaces --if-present",
+    "build": "npm run build:shared && npm run build:services",
+    "dev": "concurrently \"npm run dev --workspace=services/api-gateway\" \"npm run dev --workspace=services/cache-service\" \"npm run dev --workspace=services/product-service\"",
+    "clean": "rm -rf packages/*/dist services/*/dist"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}
